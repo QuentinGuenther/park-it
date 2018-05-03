@@ -4,9 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Park It </title>
-
+        <style>
+            #map {
+                margin: 0 auto;
+                width: 70%;
+                height: 600px;
+            }
+        </style>
         <link rel="stylesheet" href="styles/park-it.css">
-        <link rel="stylesheet" href="styles/park-it-android.css">
+        <link rel="stylesheet" href="styles/park-it-ios.css">
     </head>
     <body>
         <div id="navbar">
@@ -24,5 +30,33 @@
             <div id ="map">Map here</div>
             <div id="directions">Directions here</div>
         </div>
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+        <script
+                src="js/park-it.js"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE0E4sKFBF_twUaGF8LBYF9SDxqFX5wuI&callback=initMap"></script>
+        <script>
+            function initMap(){
+                //alert("Hello!");
+                var grc = {lat: 47.313582, lng: -122.1800072};
+                var seoul = {lat: 37.5665, lng: 126.9780};
+                var mapDiv = new google.maps.Map (document.getElementById('map'), {
+                    //pass in properties
+                    zoom: 11,
+                    center: seoul //grc
+                });
+                var marker = new google.maps.Marker({
+                    position: grc,
+                    map: mapDiv
+                });
+            }
+
+
+
+
+        </script>
     </body>
 </html>
