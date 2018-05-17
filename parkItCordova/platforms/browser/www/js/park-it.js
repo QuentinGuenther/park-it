@@ -25,6 +25,9 @@ function setParkingLocationSuccess(position) {
     latitude = position.coords.latitude;
     storage.setItem("parkedLatitude", latitude);
 
+    longitude = position.coords.longitude;
+    storage.setItem("parkedLongitude", longitude);
+
     showParkingLocations();
 }
 
